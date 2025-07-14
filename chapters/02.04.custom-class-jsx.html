@@ -9,16 +9,20 @@
     <div id="app">
       <!-- my app renders here -->
     </div>
-    <script src="react/react.js"></script>
-    <script src="react/react-dom.js"></script>
-    <script src="react/babel.js"></script>
-    <script type="text/babel">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" data-type="module" data-presets="react">
+      import React from 'https://esm.sh/react@19';
+      import ReactDOM from "https://esm.sh/react-dom@19/client";
+
       class MyComponent extends React.Component {
         render() {
           return <span>I am so custom</span>;
         }
       }
-      ReactDOM.render(<MyComponent />, document.getElementById('app'));
+
+      const root = ReactDOM.createRoot(document.getElementById('app'));
+
+      root.render(<MyComponent />);
     </script>
   </body>
 </html>
